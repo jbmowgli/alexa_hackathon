@@ -10,7 +10,7 @@ module.exports = function deployCard(cardNumber, environment, done) {
   mostRecentBranchForCard(cardNumber)
     .then(branch => {
       // "Found branch _______, should I deploy it?"
-      shouldContinue = 'ALEXA_MAGIC_HERE';
+      shouldContinue = true;
 
       if (shouldContinue) {
         if (jobs[environment]) {
