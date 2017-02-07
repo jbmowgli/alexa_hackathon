@@ -1,0 +1,14 @@
+node_modules
+dist
+.DS_Store
+npm-debug.log
+npm-debug.log.*
+todo
+coverage
+.nyc_output
+.idea/*
+tags
+*.swp
+.host
+.eslintcache
+.vagrant
