@@ -13,13 +13,17 @@ module.exports = function deployCard(cardNumber, environment, done) {
       shouldContinue = 'ALEXA_MAGIC_HERE';
 
       if (shouldContinue) {
-        buildJob(jobs[environment], branch.sha, success => {
-          if (success) {
-            // "Successfully started deploy ____"
-          } else {
-            // "Failed for some reason"
-          }
-        });
+        if (jobs[environment]) {
+          buildJob(jobs[environment], branch.sha, success => {
+            if (success) {
+              // "Successfully started deploy ____"
+            } else {
+              // "Failed for some reason"
+            }
+          });
+        } else {
+          // "Sorry, not sure what environment that is"
+        }
       } else {
         // "Okay, cancelled"
       }
