@@ -1,11 +1,13 @@
 require('isomorphic-fetch');
 
+const api = 'http://667ab17c.ngrok.io';
+
 // These will come from Alexa input
-const environment = 'Test';
-const search = '64837';
+const environment = 'UAT';
+const search = '65095';
 
 let searchStatus, deployStatus;
-fetch('http://localhost:3030/search/' + search)
+fetch(api + '/search/' + search)
   .then(response => {
     searchStatus = response.status;
     return response.json();
@@ -15,7 +17,7 @@ fetch('http://localhost:3030/search/' + search)
       console.log(body.message);
     } else {
       console.log('Deploying the branch.');
-      fetch('http://localhost:3030/deploy/' + environment + '/' + body.sha)
+      fetch(api + '/deploy/' + environment + '/' + body.sha)
         .then(response => {
           deployStatus = response.status;
           return response.json();
